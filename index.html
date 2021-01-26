@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="stylesheet" href="/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <main class="container-fluid">
+    <!-- This is a user login section -->
+    <section id="user-login" >
+      <h2 class="text-center"><strong> Madam Raisa</strong> Aid Bank</h2>
+      <div id="login-area">
+        <h6>Log In</h6>
+        <input type="text" name="name" id=""  class="form-control mb-2" placeholder="Your Name">
+        <input type="email" name="email" id=""  class="form-control mb-2" placeholder="your email address">
+        <input type="password" name="password" id=""  class="form-control mb-2" placeholder="your secret password ...">
+        <button type="submit" id="loginBtn" class ="btn btn-light">Enter In</button>
+
+      </div>
+    </section>
+
+    <!-- User transaction information area -->
+    <section id="user-transaction" class="container mt-5 p-5">
+      <h3 class="text-center mb-5" style="color:dimgray;">Transaction section</h3>
+      <div class="transaction-area">
+        <div class="row container">
+          <div class="col-md-4 ">
+            <div class="common-style">
+              <h3>Deposit</h3>
+              <h5>$<span id="deposit-amount">00</span></h5>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="common-style" >
+              <h3>Withdraw</h3>
+              <h5>$<span id="withdraw-amount">00</span></h5>
+            </div class="common-style">
+          </div>
+          <div class="col-md-4 ">
+            <div class="common-style">
+              <h3>Current</h3>
+              <h5>$<span id="current-amount">2000</h5></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row container mt-5">
+          <div class="col-md-6  mt-3 p-3">
+            <div class="deposit">
+              <input class="form-control mb-1" type="text" name="" id="deposit-num" placeholder="Your deposit amount..">
+              <button id="deposit-butn" class="btn btn-success">Deposit</button>
+            </div>
+          </div>
+          <div class="col-md-6  mt-3 p-3">
+            <div class="withdraw">
+              <input class="form-control mb-1" type="text" name="" id="withdraw-num" placeholder="Your withdraw amount..">
+              <button id="withdraw-butn" class="btn btn-warning">Withdraw</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <script>
+    const loginButton = document.getElementById('loginBtn');
+    loginButton.addEventListener('click',function(){
+      const userLogin = document.getElementById('user-login')
+      userLogin.style.display = "none";
+      const userTransaction = document.getElementById('user-transaction');
+      userTransaction.style.display = "block";
+      depositAmount = document.getElementById('deposit-amount').innerText;
+      withdrawAmount = document.getElementById('withdraw-amount').innerText;
+      currentAmount = document.getElementById('current-amount').innerText;
+      depositNum = parseFloat(depositAmount);
+      withdrawNum = parseFloat(withdrawAmount);
+      currentNum = parseFloat(currentAmount);
+      // for deposit account
+      document.getElementById('deposit-butn').addEventListener('click', function(){
+        let depositAmount = document.getElementById('deposit-amount');
+        let depositNum = parseFloat(depositAmount.innerText);
+        let deposit= document.getElementById('deposit-num').value;
+        deposit = parseFloat(deposit);
+        depositAmount.innerText = (deposit + depositNum);
+        let currentAmount = document.getElementById('current-amount');
+        let currentNum = parseFloat(currentAmount.innerText);
+        currentAmount.innerText = currentNum + deposit;
+        document.getElementById('deposit-num').value = "";
+      })
+      // for withdraw account
+      document.getElementById('withdraw-butn').addEventListener('click', function(){
+        let withdrawAmount = document.getElementById('withdraw-amount');
+        let withdrawNum = parseFloat(withdrawAmount.innerText);
+        let withdraw= document.getElementById('withdraw-num').value;
+        withdraw = parseFloat(withdraw);
+        withdrawAmount.innerText = (withdraw + withdrawNum);
+        let currentAmount = document.getElementById('current-amount');
+        let currentNum = parseFloat(currentAmount.innerText);
+        currentAmount.innerText = currentNum - withdraw;
+        document.getElementById('withdraw-num').value = "";
+      })
+
+    })
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+
+</body>
+</html>
+

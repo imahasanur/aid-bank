@@ -1,0 +1,44 @@
+*{
+    margin:0;
+    padding:0;
+}
+#user-login{
+    color:purple;
+    margin:8% 5%;
+    min-height:350px;
+    width:auto;
+    border:2px solid whitesmoke;
+    box-shadow:5px 5px 20px gray;
+}
+#login-area{
+    padding:30px;
+}
+button[type="submit"]{
+    color:purple;
+}
+#user-transaction{
+    display:none;
+    min-height:350px;
+    width:auto;
+    border:2px solid linen;
+    border-radius:10px;
+    box-shadow:5px 5px 10px inset linen;
+}
+.common-style{
+    padding:30px;
+    min-height:140px;
+    border:1px solid wheat;
+    border-radius:10px;
+    background:linear-gradient(200deg,lightgray,tomato);
+    color:white;
+}
+.withdraw{
+    background:lightblue;
+    box-shadow:5px 5px 10px gray;
+    padding:30px;
+}
+.deposit{
+    background:lightpink;
+    box-shadow:5px 5px 10px lightpink;
+    padding:30px;
+}
